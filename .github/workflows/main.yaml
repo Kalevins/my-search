@@ -31,6 +31,9 @@ jobs:
       - name: Build Angular app to prod
         run: npm install && npm run build:prod
 
+      - name: Copy index.html to 404.html
+        run: cp dist/browser/index.html dist/browser/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
