@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="card-container mx-auto w-auto d-flex flex-column">
+    <h1 class="h5 text-center py-3 text-white m-0">
+      Buscar por documento
+    </h1>
+    <div class="px-5 py-4 position-relative">
+      <small class="position-absolute top-0 start-0 px-5">
+        Todos los campos son obligatorios
+      </small>
+      <form class="d-flex flex-column gap-4" [formGroup]="form()" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="floatingSelect">Tipo de documento</label>
+          <select class="form-select form-select-sm" formControlName="documentType" id="documentType">
+            <option value="1">Cédula de ciudadanía</option>
+            <option value="2">Pasaporte</option>
+          </select>
+        </div>
+        <div>
+          <label for="floatingInput">Número de documento</label>
+          <input type="text" class="form-control form-control-sm" formControlName="documentNumber" id="documentNumber" placeholder="">
+        </div>
+        <button class="w-100" type="submit" [disabled]="form().invalid">
+          Buscar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

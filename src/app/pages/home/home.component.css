@@ -1,0 +1,32 @@
+.card-container {
+  background-color: #f7fbff;
+  border: 1px solid #002c76;
+  border-radius: 20px;
+  overflow: hidden;
+  min-width: 400px;
+}
+
+h1 {
+  background-color: #002c76;
+}
+
+small {
+  color: #bbbec1;
+}
+
+label {
+  color: #002c76;
+}
+
+button {
+  background-color: #002c76;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #eaeef2;
+  color: #bbbec1;
+}
