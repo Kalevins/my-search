@@ -31,9 +31,15 @@ jobs:
       - name: Build Angular app to prod
         run: npm install && npm run build:prod
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          folder: dist/browser
-          branch: main
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # Upload dist folder
+          path: './dist/browser'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
