@@ -1,27 +1,48 @@
-# MySearch
+# My Search
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
+_Proyecto simple que permite buscar un cliente por su cedula de identidad. Se puede ver el detalle de cada cliente._
 
-## Development server
+### 🔧 Instalación
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+_En el directorio del proyecto, puede ejecutar:_
 
-## Code scaffolding
+```
+npm i
+```
+```
+npm run dev
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+_Se abrira en el navegador por defecto en la dirección: http://localhost:3000_
 
-## Build
+_Para correr las pruebas:_
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+npm run test
+```
 
-## Running unit tests
+## 📦 Resultados
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+_Puedes ver el proyecto en:_
 
-## Running end-to-end tests
+[My Search](https://kalevins.github.io/my-search/)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+_Resultados de los test:_
 
-## Further help
+![alt text](/public/test.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🛠️ Construcción
+
+* [Angular](https://angular.io/) - Framework de desarrollo
+* [TypeScript](https://www.typescriptlang.org/) - Lenguaje de programación
+* [Bootstrap](https://getbootstrap.com/) - Framework de diseño
+* [Karma](https://karma-runner.github.io/latest/index.html) - Herramienta de pruebas
+* [MSW](https://mswjs.io/) - Herramienta de pruebas
+
+## ✒️ Autores
+
+* **Kevin Muñoz Rengifo** - *Totalidad* - [Kalevins](https://github.com/Kalevins)
+
+## 🎁 Expresiones de Gratitud
+
+* Agradecimientos especiales a NTT DATA.
