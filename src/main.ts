@@ -5,12 +5,18 @@ import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 
 async function prepareApp() {
-  // if (isDevMode()) {
-    const { worker } = await import('./mocks/browser')
-    return worker.start()
-  // }
+  const { worker } = await import('./mocks/browser')
+  let options = {}
 
-  // return Promise.resolve()
+  if (!isDevMode()) {
+    options = {
+      serviceWorker: {
+        url: "/my-search/mockServiceWorker.js",
+      },
+    }
+  }
+
+  return worker.start(options)
 }
 
 prepareApp().then(() => {
