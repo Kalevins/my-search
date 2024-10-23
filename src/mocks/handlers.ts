@@ -1,8 +1,8 @@
 import { http, HttpResponse } from 'msw';
 
 interface UserRequestBody {
-  documentType: string;
-  documentNumber: string;
+  type: string;
+  number: string;
 }
 
 export const handlers = [
@@ -17,9 +17,9 @@ export const handlers = [
 
   http.post('/api/user', async ({ request }) => {
     const data = await request.json() as UserRequestBody;
-    const { documentType, documentNumber } = data;
+    const { type, number } = data;
 
-    if (!documentType || !documentNumber) {
+    if (!type || !number) {
       return HttpResponse.json({
         message: 'Invalid request'
       },{
@@ -33,8 +33,8 @@ export const handlers = [
       secondName: '',
       firstLastName: 'Muñoz',
       secondLastName: 'Rengifo',
-      documentType: documentType,
-      documentNumber: documentNumber,
+      documentType: type,
+      documentNumber: number,
       phone: '3152106633'
     },{
       status: 200,
