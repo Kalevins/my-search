@@ -15,7 +15,7 @@ export const handlers = [
     })
   }),
 
-  http.post('/api/user', async ({ request }) => {
+  http.post('/api/identification', async ({ request }) => {
     const data = await request.json() as UserRequestBody;
     const { type, number } = data;
 
