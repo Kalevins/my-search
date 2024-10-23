@@ -3,7 +3,7 @@ import { isDevMode } from '@angular/core';
 
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { environment } from './environment/environment';
+import { environment } from './environments/environment';
 
 async function prepareApp() {
   const { worker } = await import('./mocks/browser')
