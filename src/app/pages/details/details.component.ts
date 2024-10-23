@@ -1,9 +1,11 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet, ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+
 import { NumberFormatService } from '../../services/number-format.service';
+import { environment } from '../../../environment/environment';
 
 @Component({
   selector: 'app-details',
@@ -32,24 +34,29 @@ export class DetailsComponent implements OnInit {
     })
   );
 
+  isLoading: boolean = false;
+
   constructor(
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
-    private numberFormatService: NumberFormatService
+    private numberFormatService: NumberFormatService,
   ) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.route.params.subscribe(params => {
-      this.http.request('POST', '/api/user', {
+      this.http.request('POST', `${environment.backUrl}/api/client/identification`, {
         body: {
-          documentType: params['documentType'],
-          documentNumber: params['documentNumber']
+          type: params['documentType'],
+          number: this.numberFormatService.parseNumber(params['documentNumber'])
         }
       }).subscribe({
         next: (data: any) => {
           this.form().patchValue(data);
           this.form().disable();
+          this.form().get('documentType')?.setValue(params['documentType'], { emitEvent: false });
+          this.form().get('documentNumber')?.setValue(params['documentNumber'], { emitEvent: false });
 
           const value = this.form().value.documentNumber;
           if (value) {
@@ -61,6 +68,9 @@ export class DetailsComponent implements OnInit {
         },
         error: (error: any) => {
           this.onBack();
+        },
+        complete: () => {
+          this.isLoading = false;
         }
       });
     });

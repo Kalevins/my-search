@@ -3,6 +3,7 @@ import { isDevMode } from '@angular/core';
 
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { environment } from './environment/environment';
 
 async function prepareApp() {
   const { worker } = await import('./mocks/browser')
@@ -16,7 +17,9 @@ async function prepareApp() {
     }
   }
 
-  return worker.start(options)
+  if(environment.useMocks) {
+    worker.start(options)
+  }
 }
 
 prepareApp().then(() => {
