@@ -15,6 +15,13 @@ npm run dev
 
 _Se abrira en el navegador por defecto en la dirección: http://localhost:3000_
 
+_Una vez iniciado el backend el tipo de documento y el número de documento de prueba son:_
+
+```
+Tipo de documento: Cédula de ciudadanía
+Número de documento: 23445322
+```
+
 _Para correr las pruebas:_
 
 ```
@@ -22,6 +29,10 @@ npm run test
 ```
 
 ## 📦 Resultados
+
+_Puedes ver el backend en:_
+
+[My Search Backend](https://github.com/Kalevins/my-search-backend)
 
 _Puedes ver el proyecto en:_
 
